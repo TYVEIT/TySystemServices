@@ -1,0 +1,7 @@
+com.example.ia_demo.app-pngs-0 D:\treble_app-master\ia_demo\app\build\generated\res\pngs\release
+com.example.ia_demo.app-resValues-1 D:\treble_app-master\ia_demo\app\build\generated\res\resValues\release
+com.example.ia_demo.app-packageReleaseResources-2 D:\treble_app-master\ia_demo\app\build\intermediates\incremental\release\packageReleaseResources\merged.dir
+com.example.ia_demo.app-packageReleaseResources-3 D:\treble_app-master\ia_demo\app\build\intermediates\incremental\release\packageReleaseResources\stripped.dir
+com.example.ia_demo.app-release-4 D:\treble_app-master\ia_demo\app\build\intermediates\merged_res\release\mergeReleaseResources
+com.example.ia_demo.app-main-5 D:\treble_app-master\ia_demo\app\src\main\res
+com.example.ia_demo.app-release-6 D:\treble_app-master\ia_demo\app\src\release\res

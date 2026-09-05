@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">IA Demo</string>
+    <string name="summary_top_level">Demo injected into Settings</string>
+    <string name="pref_header_demo">Demo preferences</string>
+    <string name="pref_switch_title">Enable feature</string>
+    <string name="pref_switch_summary">A toggle injected from a system app</string>
+    <string name="pref_text_title">Device name</string>
+    <string name="pref_text_default">Treble</string>
+    <string name="pref_action_title">Open system Settings</string>
+    <string name="pref_action_summary">Launch the real Settings activity</string>
+</resources>

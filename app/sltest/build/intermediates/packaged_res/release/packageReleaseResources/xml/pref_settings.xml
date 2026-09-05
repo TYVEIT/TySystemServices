@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:key="pref_feature_enabled"
+        android:title="@string/pref_switch_title"
+        android:summary="@string/pref_switch_summary"
+        android:defaultValue="false" />
+
+    <EditTextPreference
+        android:key="pref_device_name"
+        android:title="@string/pref_text_title"
+        android:defaultValue="@string/pref_text_default" />
+
+    <Preference
+        android:key="pref_open_settings"
+        android:title="@string/pref_action_title"
+        android:summary="@string/pref_action_summary">
+        <intent android:action="android.settings.SETTINGS" />
+    </Preference>
+
+</PreferenceScreen>

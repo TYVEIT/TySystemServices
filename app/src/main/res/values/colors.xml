@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="system_preference">#FFFFFFFF</color>
+    <color name="system_pre">#FFFFFFFF</color>
+    <color name="primary">#1A73E8</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="primary_container">#D3E3FD</color>
+    <color name="on_primary_container">#041E49</color>
+    <color name="secondary">#3D5AFE</color>
+    <color name="background">#FFFBFE</color>
+    <color name="on_background">#1C1B1F</color>
+    <color name="surface">#FFFBFE</color>
+    <color name="on_surface">#1C1B1F</color>
+    <color name="group_card_divider">#E5E5EA</color>
+    <color name="group_card_bg">#FFFFFF</color>
+    <color name="texttitle">#FF000000</color>
+</resources>

@@ -1,0 +1,97 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.ia_demo"
+4    android:sharedUserId="android.uid.system"
+5    android:versionCode="1"
+6    android:versionName="1.0" >
+7
+8    <uses-sdk
+9        android:minSdkVersion="27"
+10        android:targetSdkVersion="34" />
+11
+12    <application
+12-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:6:5-39:19
+13        android:allowBackup="true"
+13-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:7:9-35
+14        android:debuggable="true"
+15        android:extractNativeLibs="false"
+16        android:icon="@drawable/ic_settings"
+16-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:8:9-45
+17        android:label="@string/app_name"
+17-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:9:9-41
+18        android:theme="@style/AppTheme" >
+18-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:10:9-40
+19        <activity
+19-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:30:9-38:20
+20            android:name="com.example.ia_demo.SettingsActivity"
+20-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:31:13-45
+21            android:exported="true"
+21-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:33:13-36
+22            android:label="@string/app_name" >
+22-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:32:13-45
+23            <intent-filter>
+23-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:34:13-37:29
+24                <action android:name="android.intent.action.MAIN" />
+24-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:35:17-69
+24-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:35:25-66
+25
+26                <category android:name="android.intent.category.DEFAULT" />
+26-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:21:17-76
+26-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:21:27-73
+27            </intent-filter>
+28        </activity> <!-- IA 注入入口:聚合到系统 Settings 主页卡片 -->
+29        <activity-alias
+29-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:14:9-28:26
+30            android:name="com.example.ia_demo.TopLevelSettingsActivity"
+30-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:17:13-53
+31            android:enabled="true"
+31-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:15:13-35
+32            android:exported="true"
+32-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:16:13-36
+33            android:targetActivity="com.example.ia_demo.SettingsActivity" >
+33-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:18:13-55
+34            <intent-filter>
+34-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:19:13-22:29
+35                <action android:name="com.android.settings.action.IA_SETTINGS" />
+35-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:20:17-82
+35-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:20:25-79
+36
+37                <category android:name="android.intent.category.DEFAULT" />
+37-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:21:17-76
+37-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:21:27-73
+38            </intent-filter>
+39
+40            <meta-data
+40-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:23:13-129
+41                android:name="com.android.settings.category"
+41-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:23:24-68
+42                android:value="com.android.settings.category.ia.homepage" />
+42-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:23:69-126
+43            <meta-data
+43-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:24:13-104
+44                android:name="com.android.settings.title"
+44-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:24:24-65
+45                android:resource="@string/app_name" />
+45-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:24:66-101
+46            <meta-data
+46-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:25:13-115
+47                android:name="com.android.settings.summary"
+47-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:25:24-67
+48                android:resource="@string/summary_top_level" />
+48-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:25:68-112
+49            <meta-data
+49-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:26:13-108
+50                android:name="com.android.settings.icon"
+50-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:26:24-64
+51                android:resource="@drawable/ic_settings" />
+51-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:26:65-105
+52            <meta-data
+52-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:27:13-89
+53                android:name="com.android.settings.order"
+53-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:27:24-65
+54                android:value="-190" />
+54-->D:\treble_app-master\ia_demo\app\src\main\AndroidManifest.xml:27:66-86
+55        </activity-alias>
+56    </application>
+57
+58</manifest>

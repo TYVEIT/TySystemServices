@@ -1,0 +1,11 @@
+<!-- res/drawable-v21/ripple_preference.xml -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?android:attr/colorControlHighlight">
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <!-- 这里的圆角大小要与你的卡片背景一致 -->
+            <corners android:radius="8dp" />
+            <solid android:color="@android:color/white" />
+        </shape>
+    </item>
+</ripple>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ty系统服务</string>
+    <string name="app_title">系统服务设置</string>
+    <string name="summary">打开系统服务设置</string>
+</resources>
