@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:key="theme_customization_category"
+        android:title="@string/theme_customization_category"
+        app:iconSpaceReserved="false">
+        <com.android.ty.systemservices.compose.preference.ComposeListPreference
+            android:key="android.theme.customization.accent_color"
+            android:title="@string/theme_customization_accent_color_title"
+            app:iconSpaceReserved="false" />
+
+        <com.android.ty.systemservices.compose.preference.ComposeListPreference
+            android:key="android.theme.customization.font"
+            android:title="@string/theme_customization_font_title"
+            app:iconSpaceReserved="false" />
+
+        <com.android.ty.systemservices.compose.preference.ComposeListPreference
+            android:key="android.theme.customization.adaptive_icon_shape"
+            android:title="@string/theme_customization_icon_shape_title"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.preference.PreferenceCategory
+        android:key="category_personalization"
+        android:title="个性化">
+
+        <com.android.ty.systemservices.compose.preference.ComposeSwitchPreference
+            android:key="use_blur"
+            android:title="毛玻璃效果"
+            android:summary="状态卡使用半透明流体背景"
+            android:defaultValue="false" />
+
+        <com.android.ty.systemservices.compose.preference.ComposeSwitchPreferenceClock
+            android:key="secure_mode"
+            android:title="安全模式"
+            android:summary="安装前校验签名"
+            android:defaultValue="false" />
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
+        android:key="category_general"
+        android:title="通用">
+
+        <com.android.ty.systemservices.compose.preference.ComposeListPreference
+            android:key="reply_action"
+            android:title="默认回复方式"
+            android:entries="@array/reply_entries"
+            android:entryValues="@array/reply_values"
+            android:defaultValue="reply" />
+
+        <com.android.ty.systemservices.compose.preference.ComposeEditPreference
+            android:key="signature"
+            android:title="签名"
+            android:dialogTitle="签名"
+            android:summary="%s" />
+
+        <com.android.ty.systemservices.compose.preference.ComposePreference
+            android:key="about"
+            android:title="关于"
+            android:summary="查看版本信息" />
+    </androidx.preference.PreferenceCategory>
+</androidx.preference.PreferenceScreen>

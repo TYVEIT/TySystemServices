@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  自定义 Preference 的布局：FrameLayout 中放一个 ComposeView。
+  用 FrameLayout 包裹而非直接用 ComposeView 作为根，避免 ComposeView
+  在 Preference 的 RecyclerView 回收/复用中出现的生命周期问题。
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/compose_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</FrameLayout>

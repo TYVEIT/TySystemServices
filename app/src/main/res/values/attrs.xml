@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ComposePreference">
+        <attr name="cardPosition" format="enum">
+            <enum name="auto" value="-1" />
+            <enum name="first" value="0" />
+            <enum name="middle" value="1" />
+            <enum name="last" value="2" />
+            <enum name="single" value="3" />
+        </attr>
+        <attr name="iconDrawable" format="reference" />
+    </declare-styleable>
+</resources>
