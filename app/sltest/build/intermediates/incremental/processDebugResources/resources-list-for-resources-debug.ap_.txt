@@ -1,1 +1,0 @@
-D:\treble_app-master\ia_demo\app\build\intermediates\merged_res\debug\mergeDebugResources\drawable_ic_settings.xml.flat D:\treble_app-master\ia_demo\app\build\intermediates\merged_res\debug\mergeDebugResources\values_values.arsc.flat D:\treble_app-master\ia_demo\app\build\intermediates\merged_res\debug\mergeDebugResources\xml_pref_settings.xml.flat 

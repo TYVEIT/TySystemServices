@@ -8,4 +8,4 @@
     android:focusable="false"
     android:clickable="false"
     android:background="@null"
-    app:thumbIcon="@drawable/ic_switch_check"/>
+    app:thumbIcon="@drawable/ic_switch_thumb" />

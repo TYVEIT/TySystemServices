@@ -3,4 +3,11 @@
     <string name="app_name">Ty系统服务</string>
     <string name="app_title">系统服务设置</string>
     <string name="summary">打开系统服务设置</string>
+    <string name="theme_customization_device_default">设备默认</string>
+    <string name="theme_customization_category">Open</string>
+    <string name="theme_customization_accent_color_title">强调色</string>
+    <string name="theme_customization_font_title">字体</string>
+    <string name="theme_customization_icon_shape_title">图标形状</string>
+    <string name="enable_setup">启用Setup</string>
+    <string name="overlay_open">切换Overlay</string>
 </resources>

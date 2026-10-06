@@ -2,6 +2,7 @@ package com.android.ty.systemservices;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,7 +37,11 @@ public abstract class CollapsingToolbarBaseActivity extends AppCompatActivity {
         appBarLayout = findViewById(R.id.app_bar);
 
         Toolbar toolbar = findViewById(R.id.action_bar);
-        setSupportActionBar(toolbar);
+        if (getSupportActionBar() == null && toolbar != null) {
+            setSupportActionBar(toolbar);
+        } else if (toolbar != null) {
+            toolbar.setVisibility(View.GONE);
+        }
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
