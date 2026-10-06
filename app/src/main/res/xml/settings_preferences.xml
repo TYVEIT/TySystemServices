@@ -5,11 +5,13 @@
         android:title="@string/enable_setup"/>
     <com.android.ty.systemservices.compose.preference.ComposePreference
         android:title="@string/overlay_open"
-        android:fragment="com.android.ty.systemservices.Overlay.OverlayActivity$OverlayPreferenceFragment" />
-    <com.android.ty.systemservices.compose.preference.ComposePreference
+        android:key="overlay_open_preference" />
+    <com.android.ty.systemservices.compose.preference.ComposeSwitchPreference
         android:title="Status"
-        android:key="status_bar_qs" />
-    <com.android.ty.systemservices.compose.preference.ComposePreference
+        android:key="status_bar_qs"
+        android:defaultValue="false" />
+    <com.android.ty.systemservices.compose.preference.ComposeSwitchPreference
         android:key="nvg_home"
-        android:title="NVG" />
+        android:title="NVG"
+        android:defaultValue="false" />
 </androidx.preference.PreferenceScreen>
