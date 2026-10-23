@@ -1,0 +1,91 @@
+<resources>
+    <string name="app_name">E3 UI</string>
+
+    <!-- 通用 -->
+    <string name="back">返回</string>
+    <string name="expand">展开</string>
+    <string name="collapse">收起</string>
+    <string name="title_preferences">偏好设置</string>
+    <string name="title_lab">实验室</string>
+
+    <!-- 状态卡 -->
+    <string name="status_app_name">InstallerX UI</string>
+    <string name="status_version">Preview 1.0.0 (1)</string>
+
+    <!-- 提示卡 -->
+    <string name="tip_default">这是复刻 InstallerX 风格的提示卡，用于展示须知信息。</string>
+    <string name="tip_lab">实验性功能，可能不稳定。</string>
+
+    <!-- 分组标题 -->
+    <string name="section_personalization">个性化</string>
+    <string name="section_basic">基本</string>
+    <string name="section_animation">动画演示</string>
+    <string name="section_module">模块</string>
+
+    <!-- 个性化分组 -->
+    <string name="theme_settings">主题设置</string>
+    <string name="theme_settings_desc">深色 / 浅色 / 跟随系统</string>
+    <string name="installer_settings">安装器设置</string>
+    <string name="installer_settings_desc">安装模式、签名等</string>
+    <string name="big_title_style">切换大标题样式</string>
+    <string name="uninstaller_settings">卸载器设置</string>
+    <string name="uninstaller_settings_desc">卸载选项</string>
+    <string name="lab">实验室</string>
+    <string name="lab_desc">实验性功能</string>
+    <string name="preference">Preference</string>
+    <string name="preference_desc">To do</string>
+
+    <!-- 基本分组 -->
+    <string name="network_settings">网络设置</string>
+    <string name="network_settings_desc">允许联网下载资源</string>
+    <string name="disable_adb_verify">停用 ADB 安装验证</string>
+    <string name="disable_adb_verify_desc">禁止安装扫描（Play 保护机制等）</string>
+    <string name="ignore_battery">忽略电池优化</string>
+    <string name="ignore_battery_desc">后台安装不被系统限制</string>
+    <string name="hide_launcher_icon">隐藏启动器图标</string>
+    <string name="hide_launcher_icon_desc">从桌面隐藏应用入口</string>
+
+    <!-- 高级选项 -->
+    <string name="advanced_options">高级选项</string>
+    <string name="advanced_options_hint">点击展开 / 收起</string>
+    <string name="advanced_options_desc">点击展开 / 收起，圆角平滑过渡</string>
+    <string name="expanded_item">展开的子项</string>
+    <string name="expanded_item_desc">这是展开后显示的内容</string>
+
+    <!-- 高亮卡片 -->
+    <string name="ripple_highlight">点按水波高亮</string>
+    <string name="ripple_highlight_desc">按住并拖动可看到 RuntimeShader 高亮跟随手指</string>
+
+    <!-- 实验室 -->
+    <string name="module_flash">模块刷写</string>
+    <string name="module_flash_desc">开启后选择 Root 实现</string>
+    <string name="root_implementation">Root 实现</string>
+    <string name="root_magisk">Magisk</string>
+    <string name="root_kernelsu">KernelSU</string>
+    <string name="root_apatch">APatch</string>
+
+    <!-- 大标题样式 -->
+    <string name="big_title_one">One 自动注入</string>
+    <string name="big_title_two">Two 手写容器</string>
+    <string name="big_title_original">原来的顶部栏</string>
+    <string name="main_big_title_style">主界面大标题</string>
+    <string name="main_big_title_desc">主页 / 实验室统一切换</string>
+    <string name="main_big_title_one">One 自动注入 · 滚动缩放</string>
+    <string name="main_big_title_two">Two 手写容器 · 淡出</string>
+
+    <!-- preferences.xml -->
+    <string name="category_visual">视觉开关</string>
+    <string name="liquid_glass_bg">液态玻璃背景</string>
+    <string name="liquid_glass_bg_desc">卡片使用流体动画 + 半透明模糊</string>
+    <string name="secure_mode">安全模式</string>
+    <string name="secure_mode_desc">安装前进行签名与来源校验</string>
+    <string name="pref_hello">hello</string>
+    <string name="pref_test">test</string>
+    <string name="pref_system">System</string>
+    <string name="current_value_format">当前：%s</string>
+
+    <!-- 主题模式选项 -->
+    <string name="theme_mode_follow_system">跟随系统</string>
+    <string name="theme_mode_light">浅色模式</string>
+    <string name="theme_mode_dark">深色模式</string>
+</resources>

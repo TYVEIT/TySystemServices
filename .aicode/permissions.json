@@ -1,0 +1,29 @@
+{
+    "permissions": {
+        "allow": [
+            "Bash(cd)",
+            "Bash(unzip)",
+            "Bash(echo)",
+            "Bash(find)",
+            "Bash(head)",
+            "Bash(sort)",
+            "Bash(grep)",
+            "Bash(for)",
+            "Bash(do)",
+            "Bash(done)",
+            "Bash(cat)",
+            "switchMode",
+            "editFile",
+            "writeFile",
+            "Bash(sed)",
+            "Bash(tail)",
+            "Bash(xxd)",
+            "Bash(curl)",
+            "Bash(javap)",
+            "Bash(1)",
+            "Bash(git diff)",
+            "Bash(rm -f hidden-api/src/main/java/android/os/ServiceManagerHidden.java hidden-api/src/main/java/android/os/UserHandleHidden.java)"
+        ],
+        "deny": []
+    }
+}

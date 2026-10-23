@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="theme_mode_entries">
+        <item>@string/theme_mode_follow_system</item>
+        <item>@string/theme_mode_light</item>
+        <item>@string/theme_mode_dark</item>
+    </string-array>
+    <string-array name="theme_mode_values">
+        <item>auto</item>
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
+    <string-array name="test_mode_entries">
+        <item>001</item>
+        <item>002</item>
+        <item>003</item>
+        <item>004</item>
+    </string-array>
+    <string-array name="test_mode_values">
+        <item>000</item>
+        <item>001</item>
+        <item>002</item>
+        <item>003</item>
+    </string-array>
+</resources>

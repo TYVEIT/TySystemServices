@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.preference.PreferenceCategory
+        android:title="@string/category_visual" />
+
+    <com.example.installerxui.ui.preference.ComposeSwitchPreference
+        android:key="use_blur"
+        android:title="@string/liquid_glass_bg"
+        android:summary="@string/liquid_glass_bg_desc"
+        android:defaultValue="true" />
+
+    <com.example.installerxui.ui.preference.ComposeSwitchPreference
+        android:key="secure_mode"
+        android:title="@string/secure_mode"
+        android:summary="@string/secure_mode_desc"
+        android:defaultValue="true" />
+    
+    <com.example.installerxui.ui.preference.ComposePreference android:title="@string/pref_hello"/>
+    <com.example.installerxui.ui.preference.ComposePreference 
+        app:iconDrawable="@drawable/ic_keyboard_black_24dp"
+        android:summary="@string/pref_test"
+        android:title="@string/pref_hello"/>
+    <com.example.installerxui.ui.preference.ComposeDropDownMenuPreference
+        android:key="resolution"
+        android:title="@string/pref_system"
+        android:summary="@string/current_value_format"
+        android:entries="@array/test_mode_entries"
+        android:entryValues="@array/test_mode_values"
+        android:defaultValue="001" />
+</androidx.preference.PreferenceScreen>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="cardPosition" format="enum">
+        <enum name="auto" value="-1" />
+        <enum name="first" value="0" />
+        <enum name="middle" value="1" />
+        <enum name="last" value="2" />
+        <enum name="single" value="3" />
+    </attr>
+    <attr name="iconDrawable" format="reference" />
+    <!-- 可展开卡片的展开区文字 -->
+    <attr name="otitle" format="reference|string" />
+    <attr name="osummary" format="reference|string" />
+
+    <declare-styleable name="ComposePreference">
+        <attr name="cardPosition" />
+        <attr name="iconDrawable" />
+    </declare-styleable>
+
+    <!-- ExpandableCardPreference：头部用 android:title / android:summary，
+         展开区文字用 app:otitle / app:osummary，卡片位置沿用 app:cardPosition -->
+    <declare-styleable name="ExpandableCardPreference">
+        <attr name="cardPosition" />
+        <attr name="iconDrawable" />
+        <attr name="otitle" />
+        <attr name="osummary" />
+    </declare-styleable>
+</resources>

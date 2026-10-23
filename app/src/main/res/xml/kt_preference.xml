@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.preference.PreferenceCategory
+        android:key="category_general"
+        android:title="通用">
+
+        <com.android.ty.systemservices.compose.CardNavigationPreference
+            android:key="pref_clear_cache"
+            android:summary="点击清除缓存"
+            android:title="清除缓存" />
+
+        <com.android.ty.systemservices.compose.CardNavigationPreference
+            android:key="pref_about"
+            android:summary="查看版本信息"
+            android:title="关于" />
+
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
+        android:key="category_developer"
+        android:title="开发选项">
+
+        <com.android.ty.systemservices.compose.MD3SwitchPreference
+            android:defaultValue="false"
+            android:key="pref_experimental"
+            android:title="实验性功能" />
+
+        <com.android.ty.systemservices.compose.MD3SwitchPreference
+            android:defaultValue="false"
+            android:key="pref_dev_mode"
+            android:title="开发模式" />
+
+        <com.android.ty.systemservices.compose.ui.preference.ExpandableCardPreference
+            android:key="pref_expandable"
+            android:title="折叠卡片"
+            android:summary="点击展开 / 收起"
+            app:otitle="折叠卡片内容"
+            app:osummary="由 app:otitle / app:osummary 提供" />
+
+        <com.android.ty.systemservices.compose.ui.preference.ComposeMultiSelectListPreference
+            android:key="pref_multi_select"
+            android:title="多选示例"
+            android:summary="点击选择多个选项"
+            android:entries="@array/demo_multi_entries"
+            android:entryValues="@array/demo_multi_values" />
+
+    </androidx.preference.PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

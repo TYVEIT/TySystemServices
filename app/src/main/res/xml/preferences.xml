@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.preference.PreferenceCategory
+        android:key="category_personalization"
+        android:title="个性化">
+
+        <com.android.ty.systemservices.compose.ui.preference.ComposeSwitchPreference
+            android:key="use_blur"
+            android:title="毛玻璃效果"
+            android:summary="状态卡使用半透明流体背景"
+            android:defaultValue="false" />
+
+        <com.android.ty.systemservices.compose.ui.preference.ComposeSwitchPreferenceClock
+            android:key="secure_mode"
+            android:title="安全模式"
+            android:summary="安装前校验签名"
+            android:defaultValue="false" />
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
+        android:key="category_general"
+        android:title="通用">
+
+        <com.android.ty.systemservices.compose.ui.preference.ComposeListPreference
+            android:key="reply_action"
+            android:title="默认回复方式"
+            android:entries="@array/reply_entries"
+            android:entryValues="@array/reply_values"
+            android:defaultValue="reply" />
+
+        <com.android.ty.systemservices.compose.ui.preference.ComposeEditPreference
+            android:key="signature"
+            android:title="签名"
+            android:dialogTitle="签名"
+            android:summary="%s" />
+
+        <com.android.ty.systemservices.compose.ui.preference.ComposeDropDownMenuPreference
+            android:key="resolution"
+            android:title="11"
+            android:summary="1145: %s"
+            android:entries="@array/lll"
+            android:entryValues="@array/lll"
+            android:defaultValue="001" />
+        <com.android.ty.systemservices.compose.ui.preference.ComposePreference
+            android:key="about"
+            android:title="关于"
+            android:summary="查看版本信息" />
+
+        <!-- 多选示例：点击由 ComposeMultiSelectListPreferenceDialogFragment 弹出 Compose 多选面板 -->
+        <com.android.ty.systemservices.compose.ui.preference.ComposeMultiSelectListPreference
+            android:key="multi_select_demo"
+            android:title="多选示例"
+            android:summary="点击选择多个选项"
+            app:iconDrawable="@drawable/ic_settings_24dp"
+            android:entries="@array/demo_multi_entries"
+            android:entryValues="@array/demo_multi_values" />
+    </androidx.preference.PreferenceCategory>
+
+    <!-- 可展开卡片：头部文字取 android:title / android:summary，
+         展开后的文字取 app:otitle / app:osummary -->
+    <androidx.preference.PreferenceCategory
+        android:key="category_advanced"
+        android:title="高级">
+
+        <com.android.ty.systemservices.compose.ui.preference.ExpandableCardPreference
+            android:key="pref_expandable"
+            android:title="@string/advanced_options"
+            android:summary="@string/advanced_options_hint"
+            app:iconDrawable="@drawable/ic_settings_24dp"
+            app:otitle="@string/expanded_item"
+            app:osummary="@string/expanded_item_desc" />
+    </androidx.preference.PreferenceCategory>
+</androidx.preference.PreferenceScreen>

@@ -1,0 +1,56 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="reply_entries">
+        <item>Reply</item>
+        <item>Reply to all</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>reply</item>
+        <item>reply_all</item>
+    </string-array>
+    <array name="lll">
+        <item >Text1</item>
+        <item >Text</item>
+        <item >Text</item>
+        <item >Text</item>
+        <item >Text</item>
+        <item name="5">Text</item>
+        <item name="6">Text</item>
+        <item name="7">Text</item>
+        <item name="8">Text</item>
+        <item name="9">Text</item>
+        <item name="a">Text</item>
+        <item name="b">Text</item>
+        <item name="c">Text</item>
+        <item name="d">Text</item>
+        <item name="e">Text</item>
+        <item name="f">Text</item>
+        <item>Text</item>
+        <item name="@ref/2000011">Text</item>
+        <item name="@ref/2000012">Text</item>
+        <item name="@ref/2000013">Text</item>
+        <item name="@ref/2000014">Text</item>
+        <item name="@ref/2000015">Text</item>
+        <item name="@ref/2000016">Text</item>
+        <item name="@ref/2000017">Text</item>
+        <item name="@ref/2000018">Text</item>
+        <item name="@ref/2000019">Text</item>
+        <item name="@ref/200001a">Text</item>
+        <item name="@ref/200001b">Jar</item>
+    </array>
+
+    <!-- ComposeMultiSelectListPreference 示例数据 -->
+    <string-array name="demo_multi_entries">
+        <item>选项一</item>
+        <item>选项二</item>
+        <item>选项三</item>
+        <item>选项四</item>
+    </string-array>
+    <string-array name="demo_multi_values">
+        <item>opt_1</item>
+        <item>opt_2</item>
+        <item>opt_3</item>
+        <item>opt_4</item>
+    </string-array>
+</resources>

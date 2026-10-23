@@ -1,0 +1,16 @@
+// Source: https://mvnrepository.com/artifact/dev.rikka.tools.refine/annotation-processor
+compileOnly 'dev.rikka.tools.refine:annotation-processor:4.4.0'
+
+// Source: https://mvnrepository.com/artifact/dev.rikka.tools.refine/annotation
+compileOnly 'dev.rikka.tools.refine:annotation:4.4.0'
+
+https://github.com/RikkaApps/HiddenApiRefinePlugin
+
+// Source: https://mvnrepository.com/artifact/dev.rikka.tools.refine/runtime
+compileOnly 'dev.rikka.tools.refine:runtime:4.4.0'
+
+// Source: https://mvnrepository.com/artifact/dev.rikka.tools.refine/gradle-plugin
+compileOnly 'dev.rikka.tools.refine:gradle-plugin:4.4.0'
+
+// Source: https://mvnrepository.com/artifact/dev.rikka.tools.refine/gradle-plugin
+implementation 'dev.rikka.tools.refine:gradle-plugin:4.4.0'

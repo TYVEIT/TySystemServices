@@ -1,0 +1,35 @@
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.ty.systemservices.compose.ui.preference.ComposePreference
+        android:key="enable_setup"
+        android:title="@string/enable_setup"/>
+    <com.android.ty.systemservices.compose.ui.preference.ComposePreference
+        android:title="@string/overlay_open"
+        android:key="overlay_open_preference" />
+    <com.android.ty.systemservices.compose.ui.preference.ComposeSwitchPreference
+        android:title="@string/status_bar_settings"
+        android:key="status_bar_qs"
+        android:defaultValue="false" />
+    <com.android.ty.systemservices.compose.ui.preference.ComposeSwitchPreference
+        android:key="nvg_home"
+        android:title="@string/navigation_bar_settings"
+        android:defaultValue="false" />
+    <com.android.ty.systemservices.compose.ui.preference.ComposeSwitchPreference
+        android:key="stop_status"
+        android:title="@string/stop_status_title"
+        android:summary="@string/stop_status_summary"
+        android:defaultValue="false" />
+    <!-- 写 Settings.Global 的 audio_control：开 = 1，关 = 0 -->
+    <com.android.ty.systemservices.compose.ui.preference.ComposeSwitchPreference
+        android:key="audio_control"
+        android:title="@string/audio_control_title"
+        android:summary="@string/audio_control_summary"
+        android:defaultValue="false" />
+    <androidx.preference.PreferenceCategory
+        android:title="" />
+    
+    <com.android.ty.systemservices.compose.ui.preference.ComposePreference
+        android:key="open_tysettings"
+        android:title="@string/compose_settings"
+        app:iconDrawable="@drawable/ic_settings_24dp"/>
+</androidx.preference.PreferenceScreen>
