@@ -5,6 +5,8 @@ import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.compose.ui.platform.ComposeView
 import com.android.ty.systemservices.BackButtonHelper
+import com.android.ty.systemservices.CollapsingToolbarBaseActivity
+import com.android.ty.systemservices.TitleStyle
 import com.android.ty.systemservices.R
 import com.android.ty.systemservices.compose.ui.screen.DevScreen
 import com.android.ty.systemservices.compose.ui.theme.TyTheme
@@ -18,7 +20,7 @@ import com.android.ty.systemservices.compose.ui.util.SecretGate
  * 直接 `am start`、第三方 App 显式拉起都拿不到票据，会当场 finish，
  * 因此 root 也无法绕过口令直达本页。
  */
-class DevActivity : CollapsingToolbarBaseActivity() {
+class DevActivity : CollapsingToolbarBaseActivity(TitleStyle.MAIN) {
 
     /** 本次实例是否已通过入口校验（旋转重建时沿用，不再重复消费票据） */
     private var unlocked = false

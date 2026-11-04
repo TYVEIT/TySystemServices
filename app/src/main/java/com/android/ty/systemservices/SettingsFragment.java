@@ -25,6 +25,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     private static final String KEY_STOP_STATUS = StatusBarController.KEY_STOP_STATUS;
     /** 音频控制：写 Settings.Global 的 audio_control（开 = 1，关 = 0） */
     private static final String KEY_AUDIO_CONTROL = "audio_control";
+    /** Butter_set：写 Settings.Global 的 Butter_set（开 = 1，关 = 0） */
+    private static final String KEY_BUTTER_SET = "Butter_set";
 
     /**
      * 使用 Application Context，避免 Fragment 已 detach 时 getContext() 返回 null
@@ -64,6 +66,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         bindGlobalSwitch(KEY_STATUS_BAR_QS);
         bindGlobalSwitch(KEY_NVG_HOME);
         bindGlobalSwitch(KEY_AUDIO_CONTROL);
+        bindGlobalSwitch(KEY_BUTTER_SET);
         bindStopStatusSwitch();
     }
 
@@ -74,6 +77,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         syncGlobalSwitch(KEY_STATUS_BAR_QS);
         syncGlobalSwitch(KEY_NVG_HOME);
         syncGlobalSwitch(KEY_AUDIO_CONTROL);
+        syncGlobalSwitch(KEY_BUTTER_SET);
 
         // disable 标志可能被系统重启清空，进页面时按持久化状态补一次，保证开关与实际一致
         StatusBarController.reapplyIfEnabled(appContext);
@@ -96,14 +100,17 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 boolean ok = Settings.Global.putInt(
                         appContext.getContentResolver(), key, value ? 1 : 0);
                 if (ok) {
-                    toast(label + (value ? " 开启" : " 关闭"));
+                    toast(appContext.getString(
+                            value ? R.string.pref_switch_on : R.string.pref_switch_off,
+                            label));
                     return true;  // 允许开关切换
                 }
-                toast(label + " 设置失败");
+                toast(appContext.getString(R.string.pref_switch_failed, label));
                 return false;  // 写入失败，保持原状态
             } catch (Exception e) {
                 Log.e(TAG, "write Settings.Global " + key + " failed", e);
-                toast(label + " 设置失败: " + e.getMessage());
+                toast(appContext.getString(R.string.pref_switch_failed_reason,
+                        label, String.valueOf(e.getMessage())));
                 return false;
             }
         });
@@ -157,10 +164,11 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                     packageName,
                     PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
                     0);
-            toast("已启用 " + packageName);
+            toast(appContext.getString(R.string.pref_enable_pkg_ok, packageName));
         } catch (Exception e) {
             Log.e(TAG, "enable " + packageName + " failed", e);
-            toast("启用失败: " + e.getMessage());
+            toast(appContext.getString(R.string.pref_enable_pkg_failed,
+                    String.valueOf(e.getMessage())));
         }
     }
 

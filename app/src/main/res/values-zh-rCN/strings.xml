@@ -29,6 +29,16 @@
     <string name="stop_status_summary">屏蔽通知栏与快捷设置的下拉手势，重启后自动恢复</string>
     <string name="audio_control_title">音频控制</string>
     <string name="audio_control_summary">写入 Settings.Global 的 audio_control：开启为 1，关闭为 0</string>
+    <!-- Settings.Global Butter_set -->
+    <string name="butter_set_title">Butter_set</string>
+    <string name="butter_set_summary">写入 Settings.Global 的 Butter_set：开启为 1，关闭为 0</string>
+    <!-- 开关通用反馈，%1$s = 条目标题 -->
+    <string name="pref_switch_on">%1$s 开启</string>
+    <string name="pref_switch_off">%1$s 关闭</string>
+    <string name="pref_switch_failed">%1$s 设置失败</string>
+    <string name="pref_switch_failed_reason">%1$s 设置失败：%2$s</string>
+    <string name="pref_enable_pkg_ok">已启用 %1$s</string>
+    <string name="pref_enable_pkg_failed">启用失败：%1$s</string>
     <string name="expressive_seekbar_title">Expressive 滑杆</string>
     <string name="expressive_seekbar_desc">拖动调整数值</string>
     <string name="seek_mode_coarse">粗调</string>

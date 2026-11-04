@@ -25,6 +25,12 @@
         android:title="@string/audio_control_title"
         android:summary="@string/audio_control_summary"
         android:defaultValue="false" />
+    <!-- 写 Settings.Global 的 Butter_set：开 = 1，关 = 0 -->
+    <com.android.ty.systemservices.compose.ui.preference.ComposeSwitchPreference
+        android:key="Butter_set"
+        android:title="@string/butter_set_title"
+        android:summary="@string/butter_set_summary"
+        android:defaultValue="false" />
     <androidx.preference.PreferenceCategory
         android:title="" />
     

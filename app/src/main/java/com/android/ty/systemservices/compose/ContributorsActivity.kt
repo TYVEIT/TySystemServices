@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.widget.FrameLayout
 import androidx.compose.ui.platform.ComposeView
 import com.android.ty.systemservices.BackButtonHelper
+import com.android.ty.systemservices.CollapsingToolbarBaseActivity
+import com.android.ty.systemservices.TitleStyle
 import com.android.ty.systemservices.R
 import com.android.ty.systemservices.compose.ui.screen.ContributorsScreen
 import com.android.ty.systemservices.compose.ui.theme.TyTheme
@@ -17,7 +19,7 @@ import com.android.ty.systemservices.compose.ui.theme.TyTheme
  * 注意不能调 `setContent {}`：基类只重写了 `setContentView(resId)`，
  * Compose 的 `setContent` 会直接替换掉整套布局，大标题会随之消失。
  */
-class ContributorsActivity : CollapsingToolbarBaseActivity() {
+class ContributorsActivity : CollapsingToolbarBaseActivity(TitleStyle.MAIN) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

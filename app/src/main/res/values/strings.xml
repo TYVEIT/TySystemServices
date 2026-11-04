@@ -125,6 +125,16 @@
     <string name="stop_status_summary">Disable notification shade and quick settings; restored after reboot automatically</string>
     <string name="audio_control_title">Audio control</string>
     <string name="audio_control_summary">Write Settings.Global audio_control: 1 when on, 0 when off</string>
+    <!-- Settings.Global Butter_set -->
+    <string name="butter_set_title">Butter_set</string>
+    <string name="butter_set_summary">Write Settings.Global Butter_set: 1 when on, 0 when off</string>
+    <!-- Generic switch feedback, %1$s = item title -->
+    <string name="pref_switch_on">%1$s on</string>
+    <string name="pref_switch_off">%1$s off</string>
+    <string name="pref_switch_failed">Failed to update %1$s</string>
+    <string name="pref_switch_failed_reason">Failed to update %1$s: %2$s</string>
+    <string name="pref_enable_pkg_ok">Enabled %1$s</string>
+    <string name="pref_enable_pkg_failed">Failed to enable: %1$s</string>
     <string name="expressive_seekbar_title">Expressive seek bar</string>
     <string name="expressive_seekbar_desc">Drag to adjust the value</string>
     <string name="seek_mode_coarse">Coarse</string>
