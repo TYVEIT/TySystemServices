@@ -30,7 +30,7 @@
     <string name="audio_control_title">音频控制</string>
     <string name="audio_control_summary">写入 Settings.Global 的 audio_control：开启为 1，关闭为 0</string>
     <!-- Settings.Global Butter_set -->
-    <string name="butter_set_title">Butter_set</string>
+    <string name="butter_set_title">电池横向</string>
     <string name="butter_set_summary">写入 Settings.Global 的 Butter_set：开启为 1，关闭为 0</string>
     <!-- 开关通用反馈，%1$s = 条目标题 -->
     <string name="pref_switch_on">%1$s 开启</string>
@@ -236,4 +236,9 @@
 
     <!-- Snackbar：确定按钮 -->
     <string name="snackbar_confirm">确定</string>
+
+    <!-- 熄屏显示（AOD） -->
+    <string name="aod_battery">%1$d%%</string>
+    <string name="aod_battery_charging">%1$d%% · 充电中</string>
+    <string name="aod_hint_tap_unlock">轻触解锁</string>
 </resources>

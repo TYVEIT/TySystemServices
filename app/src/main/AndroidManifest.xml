@@ -17,6 +17,9 @@
         android:name="android.permission.SYSTEM_ALERT_WINDOW"
         tools:ignore="ProtectedPermissions" />
 
+    <!-- 熄屏显示轻触唤醒：FULL_WAKE_LOCK 走 PowerManagerService 的 wakeUp 路径 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <!-- 退出开机向导后重启设备，signature|privileged，平台签名自动授予 -->
     <uses-permission
         android:name="android.permission.REBOOT"
@@ -152,6 +155,21 @@
             android:name=".service.ServiceDaemonService"
             android:exported="false"
             android:stopWithTask="false" />
+        <!--
+            熄屏显示（AOD）：把 framework-res 的 config_dozeComponent 指向本服务后接管 doze。
+            BIND_DREAM_SERVICE 是 signature 级权限，必须以平台签名预置安装。
+            directBootAware：开机未解锁时也要能进 doze。
+        -->
+        <service
+            android:name=".aod.AodDozeService"
+            android:directBootAware="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_DREAM_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.dreams.DreamService" />
+            </intent-filter>
+        </service>
+
 
         <!-- 闹钟自唤醒的落点 -->
         <receiver

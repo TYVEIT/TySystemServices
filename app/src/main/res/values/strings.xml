@@ -126,7 +126,7 @@
     <string name="audio_control_title">Audio control</string>
     <string name="audio_control_summary">Write Settings.Global audio_control: 1 when on, 0 when off</string>
     <!-- Settings.Global Butter_set -->
-    <string name="butter_set_title">Butter_set</string>
+    <string name="butter_set_title">Battery horizontal</string>
     <string name="butter_set_summary">Write Settings.Global Butter_set: 1 when on, 0 when off</string>
     <!-- Generic switch feedback, %1$s = item title -->
     <string name="pref_switch_on">%1$s on</string>
@@ -273,4 +273,9 @@
 
     <!-- Snackbar: confirm button -->
     <string name="snackbar_confirm">OK</string>
+
+    <!-- 熄屏显示（AOD） -->
+    <string name="aod_battery">%1$d%%</string>
+    <string name="aod_battery_charging">%1$d%% · Charging</string>
+    <string name="aod_hint_tap_unlock">Tap to unlock</string>
 </resources>
