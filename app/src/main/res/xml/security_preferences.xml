@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Settings.Secure.DOZE_ENABLED，开 = 1，关 = 0 -->
+    <com.android.ty.systemservices.compose.ui.preference.ComposeSwitchPreference
+        android:key="doze_enabled"
+        android:title="@string/security_doze_enabled_title"
+        android:summary="@string/security_doze_enabled_summary"
+        android:defaultValue="true" />
+
+    <!-- Settings.Secure.DOZE_ALWAYS_ON，开 = 1，关 = 0 -->
+    <com.android.ty.systemservices.compose.ui.preference.ComposeSwitchPreference
+        android:key="doze_always_on"
+        android:title="@string/security_doze_always_on_title"
+        android:summary="@string/security_doze_always_on_summary"
+        android:defaultValue="false" />
+
+</androidx.preference.PreferenceScreen>

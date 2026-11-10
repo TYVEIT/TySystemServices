@@ -20,6 +20,11 @@
     <!-- 熄屏显示轻触唤醒：FULL_WAKE_LOCK 走 PowerManagerService 的 wakeUp 路径 -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+    <!-- 轻触唤醒调 PowerManager.wakeUp()，signature|privileged，平台签名自动授予 -->
+    <uses-permission
+        android:name="android.permission.DEVICE_POWER"
+        tools:ignore="ProtectedPermissions" />
+
     <!-- 退出开机向导后重启设备，signature|privileged，平台签名自动授予 -->
     <uses-permission
         android:name="android.permission.REBOOT"
@@ -75,6 +80,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <!-- 安全设置：Settings.Secure 的 doze 开关，仅应用内跳转 -->
+        <activity
+            android:name=".SecurityActivity"
+            android:exported="false"
+            android:theme="@style/Open.MigPreference"
+            android:label="@string/security_title" />
 
         <activity-alias
             android:name=".TopLevelSettingsActivity"
@@ -142,6 +154,10 @@
             android:name=".compose.ContributorsActivity"
             android:theme="@style/Open.MigPreference"
             android:exported="true" />
+        <activity
+            android:name=".compose.ContributorsDbActivity"
+            android:theme="@style/Open.MigPreference"
+            android:exported="false" />
         <activity
             android:name=".compose.TestActivity"
             android:theme="@style/Open.MigPreference"

@@ -32,6 +32,12 @@
     <!-- Settings.Global Butter_set -->
     <string name="butter_set_title">电池横向</string>
     <string name="butter_set_summary">写入 Settings.Global 的 Butter_set：开启为 1，关闭为 0</string>
+    <string name="security_title">安全设置</string>
+    <string name="security_summary">控制熄屏显示（Doze）相关的安全设置</string>
+    <string name="security_doze_enabled_title">熄屏显示</string>
+    <string name="security_doze_enabled_summary">写入 Settings.Secure 的 doze_enabled：开启为 1，关闭为 0</string>
+    <string name="security_doze_always_on_title">常亮显示</string>
+    <string name="security_doze_always_on_summary">写入 Settings.Secure 的 doze_always_on：开启为 1，关闭为 0</string>
     <!-- 开关通用反馈，%1$s = 条目标题 -->
     <string name="pref_switch_on">%1$s 开启</string>
     <string name="pref_switch_off">%1$s 关闭</string>
@@ -241,4 +247,18 @@
     <string name="aod_battery">%1$d%%</string>
     <string name="aod_battery_charging">%1$d%% · 充电中</string>
     <string name="aod_hint_tap_unlock">轻触解锁</string>
+
+    <!-- 贡献者云（复刻 LineageParts） -->
+    <string name="contributors_cloud_title">贡献者云</string>
+    <string name="contributors_cloud_search_hint">搜索姓名或用户名</string>
+    <string name="contributors_cloud_clear">清除</string>
+    <string name="contributors_cloud_reset">重置视图</string>
+    <string name="contributors_cloud_locate">定位</string>
+    <string name="contributors_cloud_close">关闭</string>
+    <string name="contributors_cloud_loading">正在生成云图…</string>
+    <string name="contributors_cloud_failed">贡献者数据库不可用</string>
+    <string name="contributors_cloud_not_found">贡献者库里没有“%1$s”</string>
+    <string name="contributors_cloud_commits">%1$s 次提交</string>
+    <string name="contributors_cloud_stats_title">关于这张云图</string>
+    <string name="contributors_cloud_stats_message">贡献者：%1$s\n提交数：%2$s\n数据更新：%3$s</string>
 </resources>

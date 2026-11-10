@@ -63,6 +63,14 @@ public class SettingsFragment extends PreferenceFragmentCompat {
             });
         }
 
+        Preference security = findPreference("security_preference");
+        if (security != null) {
+            security.setOnPreferenceClickListener(preference -> {
+                startActivity(new Intent(getActivity(), SecurityActivity.class));
+                return true;
+            });
+        }
+
         bindGlobalSwitch(KEY_STATUS_BAR_QS);
         bindGlobalSwitch(KEY_NVG_HOME);
         bindGlobalSwitch(KEY_AUDIO_CONTROL);

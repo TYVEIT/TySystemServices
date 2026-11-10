@@ -38,4 +38,9 @@
         android:key="open_tysettings"
         android:title="@string/compose_settings"
         app:iconDrawable="@drawable/ic_settings_24dp"/>
+    <com.android.ty.systemservices.compose.ui.preference.ComposePreference
+        android:key="security_preference"
+        android:title="@string/security_title"
+        android:summary="@string/security_summary"
+        app:iconDrawable="@drawable/code42" />
 </androidx.preference.PreferenceScreen>

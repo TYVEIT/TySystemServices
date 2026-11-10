@@ -1,0 +1,45 @@
+{
+  "_note": [
+    "name 必填；username / commits 可选，commits 越大字号越大",
+    "x / y 为可选手动排版：x 是文字左端，y 是基线（文字底部），r = 0 横排、-1 逆时针、1 顺时针",
+    "只保留自己人时用：python3 tools/build_contributors_db.py -i contributors.json -o app/src/main/assets/contributors.db --standalone --bump-version"
+  ],
+  "contributors": [
+    {
+      "name": "TeYun_Mig_Tyt",
+      "username": "teyun",
+      "commits": 12,
+      "x": 257,
+      "y": 648,
+      "r": 0,
+      "fs": 96
+    },
+    {
+      "name": "Name",
+      "username": "name",
+      "commits": 1,
+      "x": 244,
+      "y": 829,
+      "r": 0,
+      "fs": 78
+    },
+    {
+      "name": "LineageOS",
+      "username": "lineageos",
+      "commits": 8800,
+      "x": 394,
+      "y": 450,
+      "r": 0,
+      "fs": 70
+    },
+    {
+      "name": "DeepSeek",
+      "username": "deepseek",
+      "commits": 200,
+      "x": 724,
+      "y": 821,
+      "r": 0,
+      "fs": 62
+    }
+  ]
+}

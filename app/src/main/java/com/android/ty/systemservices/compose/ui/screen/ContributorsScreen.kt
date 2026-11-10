@@ -31,6 +31,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -39,6 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.android.ty.systemservices.R
+import com.android.ty.systemservices.compose.ContributorsDbActivity
 
 /**
  * 贡献者条目的展示模型。
@@ -46,6 +48,9 @@ import com.android.ty.systemservices.R
  * 顶部区域是 16:9 的整块画布：
  * - [imageRes] 有值时按 `ContentScale.Crop` 铺满（自定义图，建议 1080×608）；
  * - 为 null 时回落到 [icon] 的内置矢量图标，居中显示。
+ *
+ * [dbQuery] 是点击卡片后到贡献者云里查找的关键字，留空则用卡片标题本身。
+ * 想精确指向数据库里的某个人时填它的 `name` 或 `username`。
  */
 private data class Contributor(
     @StringRes val nameRes: Int,
@@ -53,6 +58,7 @@ private data class Contributor(
     @StringRes val summaryRes: Int,
     @DrawableRes val imageRes: Int? = null,
     val icon: ImageVector? = null,
+    val dbQuery: String? = null,
 )
 
 /** 示例数据，按实际贡献者替换即可 */
@@ -92,6 +98,8 @@ private val contributors = listOf(
  */
 @Composable
 fun ContributorsScreen() {
+    val context = LocalContext.current
+
     Scaffold(
         containerColor = MaterialTheme.colorScheme.surfaceContainer,
     ) { padding ->
@@ -106,7 +114,19 @@ fun ContributorsScreen() {
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             items(contributors) { contributor ->
-                ContributorCard(contributor)
+                // stringResource 只能在 composable 作用域里取，先取出来再交给点击回调
+                val displayName = stringResource(contributor.nameRes)
+                ContributorCard(
+                    contributor = contributor,
+                    onClick = {
+                        context.startActivity(
+                            ContributorsDbActivity.newIntent(
+                                context,
+                                contributor.dbQuery ?: displayName,
+                            ),
+                        )
+                    },
+                )
             }
         }
     }
@@ -118,9 +138,9 @@ fun ContributorsScreen() {
  * `Card(onClick = ...)` 自带 M3 水波纹，点击反馈裁在 16dp 圆角内。
  */
 @Composable
-private fun ContributorCard(contributor: Contributor) {
+private fun ContributorCard(contributor: Contributor, onClick: () -> Unit) {
     Card(
-        onClick = { /* 预留：后续可跳转到贡献者主页 */ },
+        onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(

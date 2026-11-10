@@ -128,6 +128,12 @@
     <!-- Settings.Global Butter_set -->
     <string name="butter_set_title">Battery horizontal</string>
     <string name="butter_set_summary">Write Settings.Global Butter_set: 1 when on, 0 when off</string>
+    <string name="security_title">Security</string>
+    <string name="security_summary">Control doze-related secure settings</string>
+    <string name="security_doze_enabled_title">Doze</string>
+    <string name="security_doze_enabled_summary">Write Settings.Secure doze_enabled: 1 when on, 0 when off</string>
+    <string name="security_doze_always_on_title">Always-on display</string>
+    <string name="security_doze_always_on_summary">Write Settings.Secure doze_always_on: 1 when on, 0 when off</string>
     <!-- Generic switch feedback, %1$s = item title -->
     <string name="pref_switch_on">%1$s on</string>
     <string name="pref_switch_off">%1$s off</string>
@@ -278,4 +284,18 @@
     <string name="aod_battery">%1$d%%</string>
     <string name="aod_battery_charging">%1$d%% · Charging</string>
     <string name="aod_hint_tap_unlock">Tap to unlock</string>
+
+    <!-- Contributor cloud (ported from LineageParts) -->
+    <string name="contributors_cloud_title">Contributor cloud</string>
+    <string name="contributors_cloud_search_hint">Search name or username</string>
+    <string name="contributors_cloud_clear">Clear</string>
+    <string name="contributors_cloud_reset">Reset view</string>
+    <string name="contributors_cloud_locate">Locate</string>
+    <string name="contributors_cloud_close">Close</string>
+    <string name="contributors_cloud_loading">Drawing the cloud…</string>
+    <string name="contributors_cloud_failed">Contributor database unavailable</string>
+    <string name="contributors_cloud_not_found">“%1$s” is not in this contributor database</string>
+    <string name="contributors_cloud_commits">%1$s commits</string>
+    <string name="contributors_cloud_stats_title">About this cloud</string>
+    <string name="contributors_cloud_stats_message">Contributors: %1$s\nCommits: %2$s\nUpdated: %3$s</string>
 </resources>
