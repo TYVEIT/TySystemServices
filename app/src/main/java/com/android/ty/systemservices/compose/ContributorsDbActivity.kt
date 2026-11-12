@@ -26,7 +26,7 @@ class ContributorsDbActivity : CollapsingToolbarBaseActivity(TitleStyle.MAIN) {
         super.onCreate(savedInstanceState)
 
         setBackButton(BackButtonHelper.isFromOwnActivity(this))
-        setLargeTitle(R.string.contributors_cloud_title)
+        setLargeTitle(R.string.contributors_title)
 
         val query = intent?.getStringExtra(EXTRA_QUERY)
 
