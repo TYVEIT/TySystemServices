@@ -1,10 +1,12 @@
 package com.android.ty.systemservices.service
 
+import android.app.AppOpsManager
 import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.PixelFormat
 import android.graphics.drawable.GradientDrawable
+import android.os.Process
 import android.provider.Settings
 import android.util.Log
 import android.util.TypedValue
@@ -19,26 +21,30 @@ import com.android.ty.systemservices.R
  *
  * ## 只走系统层级，不申请「显示在其他应用上层」
  *
- * 窗口类型固定 [WindowManager.LayoutParams.TYPE_SYSTEM_ERROR]（2010）。
- * WMS 对它的校验项是 `INTERNAL_SYSTEM_WINDOW`——signature 级权限，
+ * 窗口类型固定使用系统窗口，三类候选按 2003 → 2010 → 2015 逐个尝试：
+ *
+ * - 2003（TYPE_SYSTEM_ALERT）：常规系统提示层；
+ * - 2010（TYPE_SYSTEM_ERROR）：层级更高；
+ * - 2015（TYPE_SECURE_SYSTEM_OVERLAY）：层级最高（Android 10 为 31 / Android 12 为 33，
+ *   高于通知面板 17/19、导航栏 23/24），且不受 appop 约束。
+ *
+ * WMS 对它们的校验项都是 `INTERNAL_SYSTEM_WINDOW`——signature 级权限，
  * 平台签名的系统应用在安装时就被授予，开机、重启、覆盖安装都不会丢，
  * 也不会出现在「特殊应用权限 → 显示在其他应用之上」列表里。
  *
- * 换句话说：**这条路完全不经过 appop**。用户在设置里把那个开关关掉，
- * 对本浮层没有任何影响，代码里也不需要去改 appop 状态。
+ * ## 为什么前两个可能挂上却看不见
  *
- * ## 为什么不是 2014 / 2003
+ * 2003 / 2010 都属于 WMS 的 `isSystemAlertWindowType()`，窗口可见性额外绑在
+ * `SYSTEM_ALERT_WINDOW` 这个 appop 上：`WindowState.initAppOpsState()` 读到 op
+ * 不是 ALLOWED/DEFAULT 就 `setAppOpVisibilityLw(false)` 直接 `hide()`。
+ * 结果是 addView 成功、`mHasSurface=true`，但 `isVisible=false`、屏幕上看不到。
+ * 所以这两个类型在用之前先查 appop，不允许就直接跳过。
  *
- * - 2014（TYPE_STATUS_BAR_PANEL）：Android 12 起 `DisplayPolicy.validateAddingWindowLw()`
- *   对它直接返回 `ADD_INVALID_TYPE`，addView 必失败——开关会回弹；
- * - 2003（TYPE_SYSTEM_ALERT）：持有 INTERNAL_SYSTEM_WINDOW 时层级为 13，
- *   低于 Android 12 的通知面板（19），压不住 SystemUI；
- *   以前靠 `PRIVATE_FLAG_IS_ROUNDED_CORNERS_OVERLAY` 抬层，但 Android 12 把该标记
- *   改成了独立表面（`WindowToken.makeSurface()` 里 `setParent(null)`），
- *   窗口能挂上却脱离显示器合成树，表现为「开关开着、屏幕上看不到」。
+ * 2015 不是 alert 类型，`checkAddPermission` 给它的 appOp 是 `OP_NONE`，
+ * 不经过 appop，是前两个都不可用时的兜底。
  *
- * 2010 在层级表里是 26（Android 10）/ 27（Android 12），
- * 本身就高于通知面板（17/19）与导航栏（23/24），不需要任何私有标记。
+ * 2014（TYPE_STATUS_BAR_PANEL）不在候选里：Android 12 起
+ * `DisplayPolicy.validateAddingWindowLw()` 对它返回 `ADD_INVALID_TYPE`，addView 必失败。
  *
  * 不抢占焦点、不拦截触摸，只作为状态指示。
  *
@@ -68,6 +74,21 @@ object TestModeOverlay {
 
     /** 当前挂着的所有浮层（TestMode + 预览开发阶段），空表示未显示 */
     private val overlayViews = mutableListOf<View>()
+
+    /**
+     * 窗口类型候选，按顺序尝试：2003 → 2010 → 2015。
+     *
+     * 2014（TYPE_STATUS_BAR_PANEL）不在列表里：Android 12 起
+     * `DisplayPolicy.validateAddingWindowLw()` 对它返回 `ADD_INVALID_TYPE`，addView 必失败。
+     */
+    private val windowTypeCandidates = intArrayOf(
+        WindowManager.LayoutParams.TYPE_SYSTEM_ALERT, // 2003
+        WindowManager.LayoutParams.TYPE_SYSTEM_ERROR, // 2010
+        WindowManager.LayoutParams.TYPE_SECURE_SYSTEM_OVERLAY, // 2015
+    )
+
+    /** 当前实际生效的窗口类型，全部候选都不可用时保留初始值 */
+    private var activeType = windowTypeCandidates[0]
 
     /** 读取持久化的开关状态 */
     @JvmStatic
@@ -152,18 +173,39 @@ object TestModeOverlay {
      * 当前浮层的诊断信息，开发调试页直接展示。
      *
      * `views=2/2` 是实际挂载的窗口数；`type` 是加窗用的层级；
-     * `sysPerm` 是 INTERNAL_SYSTEM_WINDOW 是否授予。
+     * `sysPerm` 是 INTERNAL_SYSTEM_WINDOW 是否授予；
+     * `shown` / `size` 是客户端侧看到的可见性与尺寸，用来区分「窗口没合成」和「视图本身是 0×0」。
      */
     @JvmStatic
     fun diagnostic(context: Context): String {
         val app = context.applicationContext
+        val shown = overlayViews.count { it.isShown }
+        val sizes = overlayViews.joinToString("/") { "${it.width}x${it.height}" }
         return "views=${overlayViews.size}/$OVERLAY_COUNT" +
-            " type=${overlayWindowType()}" +
-            " sysPerm=${hasSystemWindowPermission(app)}"
+            " type=$activeType" +
+            " sysPerm=${hasSystemWindowPermission(app)}" +
+            " shown=$shown/${overlayViews.size}" +
+            " size=$sizes"
     }
 
-    /** 系统窗口类型，固定 2010；这条路径不需要 appop */
-    private fun overlayWindowType(): Int = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR
+    /** 这些类型的可见性还受 SYSTEM_ALERT_WINDOW appop 控制，挂上也未必看得见 */
+    private fun isAppOpGatedType(type: Int): Boolean = when (type) {
+        WindowManager.LayoutParams.TYPE_SYSTEM_ALERT,
+        WindowManager.LayoutParams.TYPE_SYSTEM_ERROR,
+        -> true
+        else -> false
+    }
+
+    /** 与 WMS 保持一致：MODE_DEFAULT 也算可见（initAppOpsState 会 startIfModeDefault） */
+    private fun isAlertAppOpAllowed(context: Context): Boolean {
+        val appOps = context.getSystemService(AppOpsManager::class.java) ?: return true
+        val mode = appOps.checkOpNoThrow(
+            AppOpsManager.OPSTR_SYSTEM_ALERT_WINDOW,
+            Process.myUid(),
+            context.packageName,
+        )
+        return mode == AppOpsManager.MODE_ALLOWED || mode == AppOpsManager.MODE_DEFAULT
+    }
 
     private fun show(context: Context): Boolean {
         // 完整挂上过就直接返回；只挂上一半（某次 addView 失败）则清掉重建，
@@ -172,6 +214,23 @@ object TestModeOverlay {
         if (overlayViews.isNotEmpty()) hide(context)
 
         val wm = context.getSystemService(WindowManager::class.java) ?: return false
+        for (type in windowTypeCandidates) {
+            if (isAppOpGatedType(type) && !isAlertAppOpAllowed(context)) {
+                Log.w(TAG, "skip window type $type: SYSTEM_ALERT_WINDOW not allowed")
+                continue
+            }
+            if (addWindows(wm, context, type)) {
+                activeType = type
+                return true
+            }
+            // 这一轮挂了一半失败，先清干净再换下一个类型
+            hide(context)
+        }
+        return false
+    }
+
+    /** 用指定类型挂上全部浮层；任一失败返回 false，已挂上的由调用方清理 */
+    private fun addWindows(wm: WindowManager, context: Context, type: Int): Boolean {
         val density = context.resources.displayMetrics.density
 
         // 第二个浮层挂在第一个下面，两行文字都带中英双语
@@ -180,8 +239,6 @@ object TestModeOverlay {
             previewText(context) to (92 * density).toInt(),
         )
 
-        var addedAny = false
-        val type = overlayWindowType()
         for ((text, offsetY) in specs) {
             val view = createLabel(context, text)
             val params = WindowManager.LayoutParams(
@@ -197,13 +254,10 @@ object TestModeOverlay {
                 gravity = Gravity.TOP or Gravity.CENTER_HORIZONTAL
                 y = offsetY
             }
-            val added = tryAdd(wm, view, params, text)
-            if (added) {
-                overlayViews.add(view)
-                addedAny = true
-            }
+            if (!tryAdd(wm, view, params, text)) return false
+            overlayViews.add(view)
         }
-        return addedAny
+        return true
     }
 
     /** addView 的薄封装：失败只记日志，由调用方决定开关回弹 */

@@ -58,7 +58,7 @@ import com.android.ty.systemservices.service.TestModeOverlay
  * - 标题栏由宿主 [com.android.ty.systemservices.compose.DevActivity] 的
  *   CollapsingToolbarBaseActivity 提供，这里不再重复 Scaffold 的 TopAppBar；
  * - 开关状态持久化在 `dev_settings`，重启应用由 ServiceSettings 恢复；
- * - 浮层走系统窗口层级 TYPE_SYSTEM_ERROR + INTERNAL_SYSTEM_WINDOW（平台签名自动授予），
+ * - 浮层走系统窗口层级（2003 → 2010 → 2015 依次回退）+ INTERNAL_SYSTEM_WINDOW（平台签名自动授予），
  *   不申请也不依赖「显示在其他应用上层」；
  * - 未获得系统签名权限时开关点不开，页面顶部提示卡会说明原因。
  */

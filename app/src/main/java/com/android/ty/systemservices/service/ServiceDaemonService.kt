@@ -13,7 +13,7 @@ import android.util.Log
  * system_server (OverlayBoot)
  *   └─ startServiceAsUser(ServiceDaemonService)
  *        └─ onCreate / onStartCommand → TestModeOverlay.restore()
- *             └─ WindowManager.addView(TYPE_SYSTEM_ERROR)
+ *             └─ WindowManager.addView(2003 / 2010 / 2015 依次回退)
  * ```
  *
  * 自身也承担应用内守护：
