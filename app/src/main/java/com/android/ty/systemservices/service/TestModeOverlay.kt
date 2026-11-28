@@ -84,7 +84,7 @@ object TestModeOverlay {
     private val windowTypeCandidates = intArrayOf(
         WindowManager.LayoutParams.TYPE_SYSTEM_ALERT, // 2003
         WindowManager.LayoutParams.TYPE_SYSTEM_ERROR, // 2010
-        WindowManager.LayoutParams.TYPE_SECURE_SYSTEM_OVERLAY, // 2015
+        2015, // TYPE_SECURE_SYSTEM_OVERLAY，@hide 常量，公开 SDK 里取不到
     )
 
     /** 当前实际生效的窗口类型，全部候选都不可用时保留初始值 */
